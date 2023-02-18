@@ -1,0 +1,29 @@
+header {
+  display: flex;
+  padding: 12px;
+  background-color: black;
+  color: darkgray;
+}
+
+header ul {
+  display: flex;
+  list-style: none;
+}
+
+header ul li {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+header ul li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.app-name {
+  text-transform: uppercase;
+}
+
+.text-center {
+  text-align: center;
+}
