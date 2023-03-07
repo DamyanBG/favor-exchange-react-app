@@ -62,8 +62,8 @@ const CreateFavor = () => {
 
   return (
     <Container className="mt-4 mb-4 pt-4 pb-4 bg-secondary">
-      {user.token ? (
-        <Row className="justify-content-center text-center">
+      <Row className="justify-content-center text-center">
+        {user.token ? (
           <Col md={6}>
             <Form onSubmit={handleOnSubmit}>
               <h3 className="text-center text-black mb-4">Create Favor</h3>
@@ -86,10 +86,10 @@ const CreateFavor = () => {
               </Button>
             </Form>
           </Col>
-        </Row>
-      ) : (
-        <h3>You have to log in to create favors!</h3>
-      )}
+        ) : (
+          <h3>You have to log in to create favors!</h3>
+        )}
+      </Row>
     </Container>
   );
 };

@@ -9,6 +9,7 @@ import Footer from './components/footer/Footer';
 import HomePage from './components/HomePage';
 
 import 'bootstrap/dist/css/bootstrap.css';
+import MyFavors from './components/favor/MyFavors';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
               <Route path="/create-favor" element={<CreateFavor />} />
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/my-favors" element={<MyFavors />} />
             </Routes>
           </main>
           <Footer />
