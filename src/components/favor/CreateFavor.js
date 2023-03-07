@@ -62,30 +62,34 @@ const CreateFavor = () => {
 
   return (
     <Container className="mt-4 mb-4 pt-4 pb-4 bg-secondary">
-      <Row className="justify-content-center text-center">
-        <Col md={6}>
-          <Form onSubmit={handleOnSubmit}>
-            <h3 className="text-center text-black mb-4">Create Favor</h3>
+      {user.token ? (
+        <Row className="justify-content-center text-center">
+          <Col md={6}>
+            <Form onSubmit={handleOnSubmit}>
+              <h3 className="text-center text-black mb-4">Create Favor</h3>
 
-            {createFavorFields.map((cff) => (
-              <FormGroupRow
-                key={`key-${cff.controlId}`}
-                controlId={cff.controlId}
-                labelText={cff.labelText}
-                inputType={cff.inputType}
-                inputPlaceholder={cff.inputPlaceholder}
-                inputValue={favorInfo[cff.inputName]}
-                inputName={cff.inputName}
-                handleOnChange={handleOnChange}
-              />
-            ))}
+              {createFavorFields.map((cff) => (
+                <FormGroupRow
+                  key={`key-${cff.controlId}`}
+                  controlId={cff.controlId}
+                  labelText={cff.labelText}
+                  inputType={cff.inputType}
+                  inputPlaceholder={cff.inputPlaceholder}
+                  inputValue={favorInfo[cff.inputName]}
+                  inputName={cff.inputName}
+                  handleOnChange={handleOnChange}
+                />
+              ))}
 
-            <Button className="w-100 mt-4" variant="dark" type="submit">
-              Create
-            </Button>
-          </Form>
-        </Col>
-      </Row>
+              <Button className="w-100 mt-4" variant="dark" type="submit">
+                Create
+              </Button>
+            </Form>
+          </Col>
+        </Row>
+      ) : (
+        <h3>You have to log in to create favors!</h3>
+      )}
     </Container>
   );
 };
