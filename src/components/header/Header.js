@@ -4,7 +4,12 @@ import { useContext } from 'react';
 import { UserContext } from "../context/UserContext";
 
 const Header = () => {
-  const { user } = useContext(UserContext)
+  const { user, setUser } = useContext(UserContext)
+
+  const handleOnLogout = () => {
+    setUser({})
+    localStorage.removeItem("user")
+  }
 
   return (
     <Navbar bg="dark" variant="dark" expand="md">
@@ -14,6 +19,7 @@ const Header = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ps-4 me-auto">
+          <Nav.Link as={Link} to="/search-favors">Search Favors</Nav.Link>
           <Nav.Link as={Link} to="/create-favor">Offer Favors</Nav.Link>
           <Nav.Link as={Link} to="/my-favors">My Favors</Nav.Link>
         </Nav>
@@ -22,7 +28,7 @@ const Header = () => {
             user.token ? (
               <>
                 <Nav.Link as={Link} to="/profile">Profile</Nav.Link>
-                <Nav.Link as={Link} to="/logout">Logout</Nav.Link>
+                <Nav.Link as={Link} to="/logout" onClick={handleOnLogout}>Logout</Nav.Link>
               </>
             ) : (
               <>

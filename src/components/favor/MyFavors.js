@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from "react";
-import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { HOST_URL } from "../common/urls";
 import { UserContext } from "../context/UserContext";
+import FavorView from "../common/FavorView";
 
 const MyFavors = () => {
     const [myFavors, setMyFavors] = useState([])
@@ -25,12 +26,11 @@ const MyFavors = () => {
         <Container className="mt-4 mb-4 pt-4 pb-4 bg-secondary">
             <Row className="justify-content-center text-center">
                 <h2>My favors:</h2>
-                {myFavors.map((mf) => (
-                    <div>
-                        <h4>{mf.title}</h4>
-                        <p>{mf.text}</p>
-                    </div>
-                ))}
+                <Col md={6} className="mt-4">
+                    {myFavors.map((mf) => (
+                        <FavorView favor={mf} key={mf.id} />
+                    ))}
+                </Col>
             </Row>
         </Container>
     )
